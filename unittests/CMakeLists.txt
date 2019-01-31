@@ -4,9 +4,9 @@ project(unittests)
 # Add our unit tests
 add_executable(${PROJECT_NAME} main.cpp ConverterTests.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/lib)
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${CONAN_INCLUDE_DIRS})
 target_link_directories(${PROJECT_NAME} PUBLIC ${CMAKE_BINARY_DIR}/lib)
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
+target_link_libraries(${PROJECT_NAME} CONAN_PKG::boost)
+target_link_libraries(${PROJECT_NAME} CONAN_PKG::gtest)
 target_link_libraries(${PROJECT_NAME} prop2json)
 
 # Add our custom test target that will execute unit tests

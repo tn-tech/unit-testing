@@ -5,6 +5,5 @@ project(prop2json)
 add_library(${PROJECT_NAME} SHARED Converter.cpp)
 
 # Add include directories
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${CONAN_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
+target_link_libraries(${PROJECT_NAME} CONAN_PKG::boost)
 
